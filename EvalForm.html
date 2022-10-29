@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <script lang="javascript" src="scripts/xlsx.core.min.js"></script>
+    <script lang="javascript" src="scripts/FileSaver.min.js"></script>
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script lang="javascript" src="scripts/EvalForm/helper.js"></script>
+    <script lang="javascript" src="scripts/EvalForm/data.json"></script>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Styles/EvalForm.css">
+</head>
+
+<body>
+    <h1 id="status"> Report Generator</h1>
+    <div>
+        Download Excel : <input type="file" id="patient"><br />
+        <br />
+        <button id="download">Download Excel</button>
+    </div>
+    <form id="addDetails">
+        ID:
+        <input type="text" name="id"><br>
+        Section:
+        <input type="text" name="section"><br>
+        Phrase:
+        <input type="text" name="phrase"><br>
+        Description:
+        <input type="text" name="description"><br>
+        <input id="addDetails" type="submit" value="Submit">
+    </form>
+    <div id="wrapper">
+        <p>Upload the xlsx file below</p>
+        <input type="file" id="input-excel" />
+    </div>
+
+    <div>
+        <textarea id="text"></textarea>
+        <br>
+        <button id="export">Export</button>
+        <p>Click to open table in Microsoft Word </p>
+    </div>
+    <script>
+        var patient;
+        var myjson = {};
+        var val = {};
+        n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+
+        $(window).load(function () {
+            var data = $.getJSON("js/data.json", function (data) {
+                myjson = data;
+            })
+        })
+
+        $("#addDetails").submit(function () {
+            newEntry = addDetails()
+            $.getJSON("js/data.json", function (data) {
+                data.push(newEntry)
+            });
+            return false;
+            // location.reload();
+        })
+
+        $("#patient").change(function (e) {
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(e.target.files[0]);
+            reader.onload = function (e) {
+                var data = new Uint8Array(reader.result);
+                var wb1 = XLSX.read(data, { type: 'array' });
+                var sheet_name_list = wb1.SheetNames;
+                var ws = wb1.Sheets[sheet_name_list[0]]
+                var jsonob = XLSX.utils.sheet_to_json(ws, {
+                    range: 0,
+                    header: ['Column 1', 'Column 2']
+                });
+                patient = addPatient(jsonob);
+
+                var wb2 = XLSX.utils.book_new();
+                var ws_data = downloadExcel(patient, myjson);
+                wb2.Props = {
+                    Title: "Report Genrator",
+                    Subject: "Patient",
+                    Author: "Pavan",
+                    CreatedDate: new Date(y, m, d)
+                };
+
+                wb2.SheetNames.push("Test Sheet");
+                var ws1 = XLSX.utils.aoa_to_sheet(ws_data, { headers: ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5', 'Column 6'] });
+                wb2.Sheets["Test Sheet"] = ws1;
+                var wbout = XLSX.write(wb2, { bookType: 'xlsx', type: 'binary' });
+
+                function s2ab(s) {
+                    var buf = new ArrayBuffer(s.length);
+                    var view = new Uint8Array(buf);
+                    for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                    return buf;
+                }
+                saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), 'test.xlsx');
+
+            }
+        });
+
+        // Removing the download Button.
+
+        $("#download").click(function () {
+            var wb = XLSX.utils.book_new();
+            var ws_data = downloadExcel(patient, myjson);
+            wb.Props = {
+                Title: "Report Genrator",
+                Subject: "Patient",
+                Author: "Pavan",
+                CreatedDate: new Date(2017, 12, 19)
+            };
+
+            wb.SheetNames.push("Test Sheet");
+            var ws = XLSX.utils.aoa_to_sheet(ws_data, { headers: ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5', 'Column 6'] });
+            wb.Sheets["Test Sheet"] = ws;
+            var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+            saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), 'test.xlsx');
+        });
+
+        $('#input-excel').change(function (e) {
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(e.target.files[0]);
+            reader.onload = function (e) {
+                var data = new Uint8Array(reader.result);
+                var wb = XLSX.read(data, { type: 'array' });
+                var sheet_name_list = wb.SheetNames;
+                var ws1 = wb.Sheets[sheet_name_list[0]]
+                var jsonob = XLSX.utils.sheet_to_json(ws1, {
+                    range: 0,
+                    header: ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5', 'Column 6']
+                });
+                function extractCodes(ob) {
+                    return ob['Column 1'] == 1;
+                }
+                val = jsonob.filter(extractCodes)
+                console.log(jsonob)
+                console.log(val)
+
+                description = "description"
+                var clientName = (jsonob[0]['Column 2'])
+                var clientAddress = (jsonob[1])['Column 2']
+                var dateOfService = (jsonob[2])['Column 2']
+                var typeOfService = (jsonob[3])['Column 2']
+                var clinicianName = (jsonob[4])['Column 2']
+                var clinicianTitle = (jsonob[5])['Column 2']
+                var patient_details = "Client:\t" + clientName + "\n" + "Address:\t" + clientAddress + "\n" + "Date Of Service:\t" + dateOfService + "\n" + "Type of Service:\t" + typeOfService + "\n" + "Clinician:\t" + clinicianName + "\n\t\t" + clinicianTitle
+                $("#text").val(patient_details)
+                for (var i = 0; i < val.length; i++) {
+                    console.log(myjson[val[i]])
+                    var content = $("#text").val();
+                    var newcontent = content + "\n" + "\n" + myjson[(val[i])['Column 2']].description
+                    if ((val[i])['Column 5'] != null) {
+                        newcontent += "\n" + (val[i])['Column 5'] + "\t:\t" + (val[i])['Column 6']
+                    }
+                    $("#text").val(newcontent)
+                }
+            }
+        });
+
+        window.export.onclick = function () {
+            var html, link, blob, url, css;
+            // EU A4 use: size: 841.95pt 595.35pt;
+            // US Letter use: size:11.0in 8.5in;
+            html = document.getElementById("text").value;
+            blob = new Blob(['\ufeff', html], {
+                type: 'application/msword'
+            });
+            url = URL.createObjectURL(blob);
+            link = document.createElement("A");
+            link.href = url;
+            // Set default file name.
+            // Word will append file extension - do not add an extension here.
+            link.download = "Document";
+            document.body.appendChild(link);
+            if (navigator.msSaveOrOpenBlob)
+                console.log("clicked")
+            // navigator.msSaveOrOpenBlob(blob, "Document.docx");
+            // IE10-11
+            else link.click(); // other browsers
+            document.body.removeChild(link);
+        };
+    </script>
+</body>
+
+</html>

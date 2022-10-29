@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ATUClient.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+
+    <script type="text/javascript">
+
+        function myFunction() {
+            var object = arguments[0];
+            window.showModalDialog("NewReferralAgency.aspx", object, "width=100, height=50");
+            window.opener.document.getElementById("CurrentClientLabel") = document.getElementById("AgencyNameText");
+        }
+
+    </script>
+
+    <link href="~/ATUStyleSheet.css" type="text/css" rel="Stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <table style="width: 100%" cellspacing="0" cellpadding="0" align="center"
+        border="0">
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+        <tr>
+            <td valign="top">
+                <table style="width: 100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td style="width: 671px" valign="top">
+                            <img alt="UIC logo" style="width: 568px; height: 86px" height="86" src="images/Logo.bmp"
+                                width="568" />
+                        </td>
+                        <td style="width: 384px" valign="top" align="center">
+                            <h1>
+                                <span style="font-size: 24pt">ATU Client Database</span></h1>
+                        </td>
+                    </tr>
+                </table>
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticDisplayLevels="2"
+                    DataSourceID="SiteMapDataSource1" BackColor="#B5C7DE" Font-Names="Verdana" Font-Size="1.0em"
+                    ForeColor="#284E98" DynamicHoverStyle-BackColor="#B5C7DE" StaticSelectedStyle-BorderWidth="2"
+                    Width="100%">
+                </asp:Menu>
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID = "EvaluationContent" runat ="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

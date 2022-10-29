@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D89E1CEE-6FF9-4DF7-91A6-2789D29A32D9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATUClient</RootNamespace>
+    <AssemblyName>ATUClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'WEB_CONFIG_TEST|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\9.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ATCPAddCourse.aspx" />
+    <Content Include="ATCPCourseDetails.aspx" />
+    <Content Include="ATCPCourseInfo.aspx" />
+    <Content Include="ATCPFacultyHome.aspx" />
+    <Content Include="ATCPHome.aspx" />
+    <Content Include="ATCPStudent.aspx" />
+    <Content Include="ATCPStudentmarks.aspx" />
+    <Content Include="ATCPViewStudent.aspx" />
+    <Content Include="CourseViewEditForm.aspx" />
+    <Content Include="ATCP\Trial.aspx" />
+    <Content Include="ATCPTimeout.aspx" />
+    <Content Include="FollowUp.aspx" />
+    <Content Include="Images\Cancel.PNG" />
+    <Content Include="Images\Delete.PNG" />
+    <Content Include="Images\edit-solid.svg" />
+    <Content Include="Images\Edit.png" />
+    <Content Include="Images\Edit2.png" />
+    <Content Include="Images\Logo.bmp" />
+    <Content Include="Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ATCPAddCourse.aspx.cs">
+      <DependentUpon>ATCPAddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPAddCourse.aspx.designer.cs">
+      <DependentUpon>ATCPAddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCPCourseDetails.aspx.cs">
+      <DependentUpon>ATCPCourseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPCourseDetails.aspx.designer.cs">
+      <DependentUpon>ATCPCourseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCPCourseInfo.aspx.cs">
+      <DependentUpon>ATCPCourseInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPCourseInfo.aspx.designer.cs">
+      <DependentUpon>ATCPCourseInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCPFacultyHome.aspx.cs">
+      <DependentUpon>ATCPFacultyHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPFacultyHome.aspx.designer.cs">
+      <DependentUpon>ATCPFacultyHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCPHome.aspx.cs">
+      <DependentUpon>ATCPHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPStudent.aspx.cs">
+      <DependentUpon>ATCPStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPStudent.aspx.designer.cs">
+      <DependentUpon>ATCPStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCPStudentmarks.aspx.cs">
+      <DependentUpon>ATCPStudentmarks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPStudentmarks.aspx.designer.cs">
+      <DependentUpon>ATCPStudentmarks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCPViewStudent.aspx.cs">
+      <DependentUpon>ATCPViewStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPViewStudent.aspx.designer.cs">
+      <DependentUpon>ATCPViewStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCP_ProjectEnrollmentByCourse.aspx.cs">
+      <DependentUpon>ATCP_ProjectEnrollmentByCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseViewEditForm.aspx.cs">
+      <DependentUpon>CourseViewEditForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCP\Trial.aspx.cs">
+      <DependentUpon>Trial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCPTimeout.aspx.cs">
+      <DependentUpon>ATCPTimeout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATUClientInfo.aspx.cs">
+      <DependentUpon>ATUClientInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATUClientInfo.aspx.designer.cs">
+      <DependentUpon>ATUClientInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BillingPrioritization.aspx.cs">
+      <DependentUpon>BillingPrioritization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BillingPrioritization.aspx.designer.cs">
+      <DependentUpon>BillingPrioritization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientInsurance.aspx.cs">
+      <DependentUpon>ClientInsurance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInsurance.aspx.designer.cs">
+      <DependentUpon>ClientInsurance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentBatch.aspx.cs">
+      <DependentUpon>EquipmentBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EquipmentBatch.aspx.designer.cs">
+      <DependentUpon>EquipmentBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluationForm.aspx.cs">
+      <DependentUpon>EvaluationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EvaluationForm.aspx.designer.cs">
+      <DependentUpon>EvaluationForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionFile\EmailUtility.cs" />
+    <Compile Include="ExceptionFile\ExceptionUtility.cs" />
+    <Compile Include="FollowUp.aspx.cs">
+      <DependentUpon>FollowUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUp.aspx.designer.cs">
+      <DependentUpon>FollowUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Guidance.aspx.cs">
+      <DependentUpon>Guidance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guidance.aspx.designer.cs">
+      <DependentUpon>Guidance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEquipment.aspx.cs">
+      <DependentUpon>ManageEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageEquipment.aspx.designer.cs">
+      <DependentUpon>ManageEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseDetails.cs" />
+    <Compile Include="Models\CourseHistory.cs" />
+    <Compile Include="Models\CourseInfoDetails.cs" />
+    <Compile Include="Models\CourselistDetails.cs" />
+    <Compile Include="Models\EnrollmentData.cs" />
+    <Compile Include="Models\SingleStudent.cs" />
+    <Compile Include="Models\StudentCourseView.cs" />
+    <Compile Include="Models\StudentName.cs" />
+    <Compile Include="Models\Students.cs" />
+    <Compile Include="NewReferralAgency.aspx.cs">
+      <DependentUpon>NewReferralAgency.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewReferralAgency.aspx.designer.cs">
+      <DependentUpon>NewReferralAgency.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Referral.aspx.cs">
+      <DependentUpon>Referral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Referral.aspx.designer.cs">
+      <DependentUpon>Referral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceMilestone.aspx.cs">
+      <DependentUpon>ServiceMilestone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceMilestone.aspx.designer.cs">
+      <DependentUpon>ServiceMilestone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceNeeded.aspx.cs">
+      <DependentUpon>ServiceNeeded.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceNeeded.aspx.designer.cs">
+      <DependentUpon>ServiceNeeded.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATCP.Master.cs">
+      <DependentUpon>ATCP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATCP.Master.designer.cs">
+      <DependentUpon>ATCP.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Timeout.aspx.cs">
+      <DependentUpon>Timeout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Timeout.aspx.designer.cs">
+      <DependentUpon>Timeout.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ATCP_ProjectEnrollmentByCourse.aspx" />
+    <Content Include="Images\Save.PNG" />
+    <Content Include="scripts\blockUI.js" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ATUClientInfo.aspx" />
+    <Content Include="BillingPrioritization.aspx" />
+    <Content Include="ClientInsurance.aspx" />
+    <Content Include="EquipmentBatch.aspx" />
+    <Content Include="EvalForm.html" />
+    <Content Include="EvaluationForm.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Guidance.aspx" />
+    <Content Include="Images\61391.png" />
+    <Content Include="Images\delete-512.png" />
+    <Content Include="Inventory.aspx" />
+    <Content Include="itext.html2pdf.dll" />
+    <Content Include="Login.aspx" />
+    <Content Include="ManageEquipment.aspx" />
+    <Content Include="NewReferralAgency.aspx" />
+    <Content Include="RedirectToBluemStem.html" />
+    <Content Include="Referral.aspx" />
+    <Content Include="Reports.aspx" />
+    <Content Include="ATUStyleSheet.css" />
+    <Content Include="scripts\bootstrap.bundle.min.js" />
+    <Content Include="scripts\bootstrap.full.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\EvalForm\helper.js" />
+    <Content Include="scripts\FileSaver.min.js" />
+    <Content Include="scripts\images\animated-overlay.gif" />
+    <Content Include="scripts\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="scripts\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="scripts\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="scripts\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="scripts\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="scripts\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="scripts\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="scripts\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="scripts\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="scripts\images\ui-icons_222222_256x240.png" />
+    <Content Include="scripts\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="scripts\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="scripts\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="scripts\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="scripts\jquery-1.11.0.min.js" />
+    <Content Include="scripts\jquery-3.3.1.min.js" />
+    <Content Include="scripts\jquery-ui.min.css" />
+    <Content Include="scripts\jquery-ui.min.js" />
+    <Content Include="scripts\manage-scanner.js" />
+    <Content Include="scripts\quagga.min.js" />
+    <Content Include="scripts\xlsx.core.min.js" />
+    <Content Include="ServiceMilestone.aspx" />
+    <Content Include="ServiceNeeded.aspx" />
+    <Content Include="style.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.full.min.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\EvalForm.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Timeout.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages.config" />
+    <None Include="scripts\EvalForm\data.json" />
+    <Content Include="ATCP.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49898</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49898/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://128-248-23-84.ahs.uic.edu/ATU</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

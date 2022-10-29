@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="" title=""  description="">
+		<siteMapNode url="~/ATUClientInfo.aspx" title="ATUClientInfo"  description="ATUClientInfo" />
+		<siteMapNode url="~/ClientInsurance.aspx" title="ClientInsurance"  description="ClientInsurance" />
+		<siteMapNode url="~/Referral.aspx" title="Referral"  description="Referral" />
+		<siteMapNode url="~/BillingPrioritization.aspx" title="BillingByPhase"  description="BillingByPhase" />
+		<!--<siteMapNode url="~/ServiceMilestone.aspx" title="Service"  description="Service" />-->
+    <siteMapNode url="" title="Service">
+      <siteMapNode url="~/ServiceMilestone.aspx" title="Service"/>
+			<siteMapNode url="~/FollowUp.aspx" title="Follow Up"/>
+    </siteMapNode>
+		<siteMapNode url="~/Guidance.aspx" title="Guidance" description="Guidance" />
+		<!--<siteMapNode url="~/EquipmentReceived.aspx" title="Equipment" description="Equipment" >-->
+		<siteMapNode url="" title="Equipment">
+			<siteMapNode url="~/Inventory.aspx" title="Attributing"/>
+			<siteMapNode url="~/EquipmentBatch.aspx" title="Batching"/>
+			<siteMapNode url="~/ManageEquipment.aspx" title="Managing"/>
+		</siteMapNode>
+			<siteMapNode url="~/EvaluationForm.aspx" title="Evaluation" description="Evaluation" />
+			<!--<siteMapNode url="~/ServiceMilestone.aspx" title="ServiceMilestone" description="ReferralMore" />-->
+			<!--<siteMapNode url="~/Equipment.aspx" title="Colbert"  description="Colbert" />-->
+			<siteMapNode url="~/Reports.aspx" title="Reports"  description="Reports" />
+		</siteMapNode>
+	
+</siteMap>
